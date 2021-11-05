@@ -1,0 +1,61 @@
+.result {
+    margin-top: 30px;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 50px;
+}
+
+
+.result .container {
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.result .card {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.result .card .cover {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.result .card .detail {
+   padding-left: 20px;
+   padding-right: 60px;
+   width: 100%;
+}
+
+.result .card .title {
+    width: 70%;
+}
+
+.result .card .info {
+   float: right;
+   position: relative;
+   bottom: 70px;
+}
+
+.result .line {
+   width: 80%;
+   margin-left: 10%;
+   margin-right: 10%;
+   border: 1px solid #eee;
+   text-align: center;
+}
+
+.empty {
+    text-align: center;
+}
+
+.result .link-card {
+    text-decoration: none;
+    color: #000;
+}
