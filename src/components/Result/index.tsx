@@ -1,23 +1,13 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { searchProductsAction } from "src/redux/actions/SearchActions";
-import { AppStateType } from "src/redux/types/AppStateType";
-import { AppDispatch } from "src/redux/utils/AppDispatch";
+
+import { useResult } from "src/redux/hooks/useResult";
 import { PropsSearch } from "src/types/PropsSearch";
-import Loading from "../Loading";
 import Categories from "./Categories";
 import Empty from "./Empty";
 import Products from "./Products";
 import "./Result.css";
 
 const ResultComponent = ({ search }: PropsSearch) => {
-
-    const { isLoading, results, isLoaded } = useSelector((state: AppStateType) => state.search);
-    const loading = isLoading ? <Loading title="Cargando resultados..." /> : "";
-    useEffect(() => {
-        if (search && !isLoaded) AppDispatch(searchProductsAction(search));
-    }, [search])
-
+    const { results, loading, isLoaded } = useResult(search)
     return <div className="result">
         { loading }
         { isLoaded && results && results.categories && <Categories categories={results.categories}  /> }

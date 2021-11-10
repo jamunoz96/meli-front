@@ -1,23 +1,12 @@
 
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { findProductAction } from "src/redux/actions/ProductActions";
-import { AppStateType } from "src/redux/types/AppStateType";
-import { AppDispatch } from "src/redux/utils/AppDispatch";
+import { useProduct } from "src/redux/hooks/useProduct";
 import { PropsProduct } from "src/types/PropsProduct";
 import { parsePriceProduct } from "src/utils/numbers";
-import Loading from "../Loading";
 import Categories from "../Result/Categories";
 import "./Product.css";
 
 const ProductComponent = ({ id }: PropsProduct) => {
-
-    const { isLoading, results, errorMessage, isLoaded } = useSelector((state: AppStateType) => state.product);
-    const loading = isLoading ? <Loading title="Cargando producto..." /> : "";
-    useEffect(() => {
-        AppDispatch(findProductAction(id));
-    }, [])
-
+    const { results, loading, isLoaded, errorMessage } = useProduct(id);
     return <div className="product">
         { loading }
         { results && results.item.categories && <Categories categories={results.item.categories}  /> }
