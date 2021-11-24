@@ -10,4 +10,4 @@ npm install
 ### `npm start`
 
 # Live demo - Deploy in Heroku
-(https://jamunoz96-meli-front.herokuapp.com/)
+https://jamunoz96-meli-front.herokuapp.com/
